@@ -11,7 +11,7 @@ namespace WebUI.Controllers
     {
         private IProposalsRepository _repository;
 
-        public HomeController(IProposalsRepository repo )
+        public HomeController(IProposalsRepository repo)
         {
             _repository = repo;
         }
@@ -19,7 +19,7 @@ namespace WebUI.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            var proposals= _repository.Proposals.ToList();
+            var proposals = _repository.Proposals.ToList();
             return View(proposals);
         }
 
