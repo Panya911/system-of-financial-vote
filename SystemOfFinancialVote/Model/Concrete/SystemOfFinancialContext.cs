@@ -8,7 +8,7 @@ using Model.Entities;
 
 namespace Model.Concrete
 {
-    class SystemOfFinancialContext : DbContext
+    public class SystemOfFinancialContext : DbContext
     {
         public DbSet<Proposal> Proposals { get; set; }
         public DbSet<User> Users { get; set; }

@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model.Concrete;
 using Model.Entities;
 
 namespace Model.Abstract
 {
-    public interface IUsersRepository
+    public interface IRepository
     {
-        IQueryable<User> Users { get; }
-        
-        void AddUser(User user);
-        User RemoveUser(int userId);
-        
+        GenericRepository<User> Users { get; }
+        GenericRepository<Proposal> Proposals { get; }
     }
 }

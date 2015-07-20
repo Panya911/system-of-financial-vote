@@ -48,11 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IProposalsRepository.cs" />
-    <Compile Include="Abstract\IUsersRepository.cs" />
-    <Compile Include="Concrete\EFProposalsRepository.cs" />
+    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Concrete\GenericRepository.cs" />
     <Compile Include="Concrete\SystemOfFinancialContext.cs" />
-    <Compile Include="Concrete\EFUsersRepository.cs" />
+    <Compile Include="Concrete\EFRepository.cs" />
     <Compile Include="Entities\Proposal.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
