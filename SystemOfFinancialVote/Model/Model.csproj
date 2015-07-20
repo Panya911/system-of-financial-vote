@@ -49,9 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IRepository.cs" />
-    <Compile Include="Concrete\GenericRepository.cs" />
-    <Compile Include="Concrete\SystemOfFinancialContext.cs" />
+    <Compile Include="Abstract\SuperRepository.cs" />
     <Compile Include="Concrete\EFRepository.cs" />
+    <Compile Include="Concrete\SystemOfFinancialContext.cs" />
+    <Compile Include="Concrete\EFSuperRepository.cs" />
     <Compile Include="Entities\Proposal.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using Model.Abstract;
 
 namespace Model.Concrete
 {
-    public class GenericRepository<TEntity> where TEntity : class
+    public class EFRepository<TEntity>:IRepository<TEntity>
+        where TEntity : class
     {
         private readonly SystemOfFinancialContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public GenericRepository(SystemOfFinancialContext context)
+        public EFRepository(SystemOfFinancialContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();
@@ -25,7 +25,6 @@ namespace Model.Concrete
             string includeProperties = "")
         {
             IQueryable<TEntity> query = _dbSet;
-
             if (filter != null)
                 query = query.Where(filter);
            
@@ -44,15 +43,9 @@ namespace Model.Concrete
             _dbSet.Add(entity);
         }
 
-        public void Delete(int id)
-        {
-            var entityToDelete = _dbSet.Find(id);
-            Delete(entityToDelete);
-        }
-
         public void Delete(TEntity entityToDelete)
         {
-            if (_context.Entry(entityToDelete).State == EntityState.Detached)
+             if (_context.Entry(entityToDelete).State == EntityState.Detached)
                 _dbSet.Attach(entityToDelete);
             _dbSet.Remove(entityToDelete);
         }

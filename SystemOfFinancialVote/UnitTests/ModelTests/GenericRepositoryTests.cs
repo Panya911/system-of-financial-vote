@@ -15,7 +15,7 @@ namespace UnitTests.ModelTests
         [Test]
         public void addElement()
         {
-            var repository = new GenericRepository<User>(new SystemOfFinancialContext());
+            var repository = new EFRepository<User>(new SystemOfFinancialContext());
             repository.Insert(new User(){FirstName = "Flyagin"});
 
             Assert.NotNull(repository.Get(x=>x.FirstName=="Flyagin"));
