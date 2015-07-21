@@ -1,0 +1,13 @@
+﻿@model Model.Entities.Proposal
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div>
+    @using (Html.BeginForm("Edit","Proposal"))
+    {
+        @Html.EditorForModel()
+    <p><input type="submit" value="Сохранить"> @Html.ActionLink("Отменить", "Details", new {id=Model.Id})</p>
+    }
+</div>

@@ -1,17 +1,7 @@
-﻿@model List<Model.Entities.Proposal>
-
+﻿
 @{
     ViewBag.Title = "Home Page";
 }
 
-@foreach (var prop in Model)
-{
-    <div>
-        <h3>@prop.Name</h3>
-        <p>@prop.Description</p>
-        <p>Цена: @prop.Price рублей</p>
-        <p>Собрано: @prop.CollectedAmount рублей</p>
-    </div>
 
-}
 

@@ -8,7 +8,7 @@ using Model.Entities;
 
 namespace Model.Concrete
 {
-    public class EFSuperRepository:SuperRepository
+    public class EFSuperRepository:ISuperRepository
     {
         private SystemOfFinancialContext _context;
 

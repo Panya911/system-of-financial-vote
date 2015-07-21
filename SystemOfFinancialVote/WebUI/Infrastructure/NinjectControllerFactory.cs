@@ -34,15 +34,16 @@ namespace WebUI.Infrastructure
         private void AddBindings()
         {
             
-            var proposals = new Mock<IProposalsRepository>();
-            proposals.Setup(x => x.Proposals).Returns(new List<Proposal>()
+            var proposals = new Mock<IRepository<Proposal>>();
+            proposals.Setup(x => x.Get(null,null,"")).Returns(new List<Proposal>()
             {
                 new Proposal(){Name = "first proposal", Price = 500},
                 new Proposal() {Name ="second proposal", Price=1000}
             }.AsQueryable());
-
-            ninjectKernel.Bind<IProposalsRepository>().To<EFProposalsRepository>();
-            //ninjectKernel.Bind<IProposalsRepository>().ToConstant(proposals.Object);
+            var repo=new Mock<ISuperRepository>();
+            repo.Setup(x => x.Proposals).Returns(proposals.Object);
+            ninjectKernel.Bind<ISuperRepository>().To<EFSuperRepository>();
+            //ninjectKernel.Bind<ISuperRepository>().ToConstant(repo.Object);
         }
     }
 }

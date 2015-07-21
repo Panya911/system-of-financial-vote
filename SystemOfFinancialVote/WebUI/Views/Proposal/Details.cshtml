@@ -1,0 +1,12 @@
+﻿@model Model.Entities.Proposal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h4>Details</h4>
+<hr/>
+<div>
+    @Html.DisplayForModel()
+</div>
+@Html.ActionLink("Редактировать","Edit",new {id=Model.Id})

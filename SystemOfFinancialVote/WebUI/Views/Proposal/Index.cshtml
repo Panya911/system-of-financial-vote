@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Model.Entities.Proposal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.ActionLink("Создать Предложение","Create")
+
+@foreach (var proposal in Model)
+{
+    <div>
+        <h3>@proposal.Name</h3>
+        <p>@proposal.Description</p>
+        <p>Цена: @proposal.Price рублей</p>
+        <p>Собрано: @proposal.CollectedAmount рублей</p>
+        @Html.ActionLink("Детали","Details",new{id=proposal.Id})
+    </div>
+}

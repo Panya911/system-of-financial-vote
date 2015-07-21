@@ -7,7 +7,7 @@ using Model.Abstract;
 
 namespace Model.Concrete
 {
-    public class EFRepository<TEntity>:IRepository<TEntity>
+    public class EFRepository<TEntity> : IRepository<TEntity>
         where TEntity : class
     {
         private readonly SystemOfFinancialContext _context;
@@ -27,8 +27,8 @@ namespace Model.Concrete
             IQueryable<TEntity> query = _dbSet;
             if (filter != null)
                 query = query.Where(filter);
-           
-            query = includeProperties.Split(new [] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+
+            query = includeProperties.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                 .Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
             return orderBy != null ? orderBy(query).ToList() : query.ToList();
         }
@@ -41,11 +41,12 @@ namespace Model.Concrete
         public void Insert(TEntity entity)
         {
             _dbSet.Add(entity);
+            
         }
 
         public void Delete(TEntity entityToDelete)
         {
-             if (_context.Entry(entityToDelete).State == EntityState.Detached)
+            if (_context.Entry(entityToDelete).State == EntityState.Detached)
                 _dbSet.Attach(entityToDelete);
             _dbSet.Remove(entityToDelete);
         }

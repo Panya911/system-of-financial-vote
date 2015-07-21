@@ -7,7 +7,7 @@ using Model.Entities;
 
 namespace Model.Abstract
 {
-    public interface SuperRepository:IDisposable
+    public interface ISuperRepository:IDisposable
     {
         IRepository<User> Users { get;}
         IRepository<Proposal> Proposals { get;}
